@@ -12,7 +12,7 @@ template<typename Head, typename... Tail> void dbg_out(Head H, Tail... T) { cerr
 #define io() freopen("input.txt", "r", stdin); freopen("output.txt", "w", stdout);
 #define dbg(...) cerr << "(" << #__VA_ARGS__ << "):", dbg_out(__VA_ARGS__)
 #else
-#define io() ios_base::sync_with_stdio(!cin.tie(0);); \
+#define io() ios_base::sync_with_stdio(!cin.tie(0));
 #define dbg(...)
 #endif
 
