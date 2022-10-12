@@ -19,7 +19,7 @@ int n;
 vector<int> a;
 string s, t;
 
-struct state () {
+struct state {
    
 };
 state res1, res2;
