@@ -1,0 +1,36 @@
+// Read more on https://cp-algorithms.com/graph/finding-negative-cycle-in-graph.html
+vector<vector<int>> floyd_marshall (vector<vector<int>>& edges) {    
+    vector<vector<int>> d(n, vector<int>(n, 1e8));
+    for (int i = 0; i < n; i++) d[i][i] = 0;
+    for (auto &[u, v, w]: v) {
+      d[u][v] = w;
+      d[v][u] = w;
+    }
+    for (int k = 0; k < n; ++k) {
+      for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+          d[i][j] = min(d[i][j], d[i][k] + d[k][j]); 
+        }
+      }
+    }
+    return d; // distance matrix
+}
+// Safety check for negative edges
+if (d[i][k] < INF && d[k][j] < INF)
+  d[i][j] = min(d[i][j], d[i][k] + d[k][j]);
+
+
+vector<int> bellman_ford (int src) {
+    vector<int> dist(n, 1e8);
+    dist[src] = 0;
+    for (int i = 0; i <= k; i++) {
+      vector<int> new_dist(dist);
+      for (auto &a : v) {
+        new_dist[a[1]] = min(new_dist[a[1]], dist[a[0]] + a[2]);
+      }
+      dist = new_dist;
+    }
+    return dist; // min distance to every node in max k steps
+  }
+}
+// It will take maximum k = n - 1 for finding shortest distances
