@@ -25,3 +25,13 @@ int choose (int x, int y) {
    if(x < y) return 0;
    return (int)((((fact[x] * (ll)invFact[y]) % mod) * invFact[x - y]) % mod);
 }
+
+
+// for smaller n, can compute nCr directly 
+vector<vector<int>> choose(n + 1, vector<int>(n + 1);  
+for (int i = 0; i <= n; i++) {
+    for (int j = 0; j <= i; j++) {
+        if (j == 0 || j == i) choose[i][j] = 1;
+        else choose[i][j] = choose[i - 1][j - 1] + choose[i - 1][j];
+    }
+}
