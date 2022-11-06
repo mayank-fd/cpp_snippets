@@ -11,13 +11,12 @@ void dijkstra (int s) {
    priority_queue<pair<int, int>> q;
    q.push({0, s});
    while (!q.empty()) {
-      int u = q.top().yy; q.pop();
+      int u = q.top().second; q.pop();
       if (marked[u]) {
          continue;
       }
       marked[u] = true;
-      for (auto x : adj[u]) {
-         int v = x.xx, w = x.yy;
+      for (auto &[v, w] : adj[u]) {
          if (d[v] > d[u] + w) {
             d[v] = d[u] + w;
             p[v] = u;
@@ -34,10 +33,9 @@ void dijkstra_alternate (int s) {
    set<pair<int, int>> q;
    q.insert({0, s});
    while (!q.empty()) {
-      int u = q.begin()->yy;
+      int u = q.begin()->second;
       q.erase(q.begin());
-      for (auto x : adj[u]) {
-         int v = x.xx, w = x.yy;
+      for (auto &[v, w] : adj[u]) {
          if (d[v] > d[u] + w) {
             q.erase({d[v], v});
             d[v] = d[u] + w;
