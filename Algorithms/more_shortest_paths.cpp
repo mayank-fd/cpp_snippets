@@ -2,7 +2,7 @@
 vector<vector<int>> floyd_marshall (vector<vector<int>>& edges) {    
     vector<vector<int>> d(n, vector<int>(n, 1e8));
     for (int i = 0; i < n; i++) d[i][i] = 0;
-    for (auto &[u, v, w]: v) {
+    for (auto &[u, v, w]: edges) {
       d[u][v] = w;
       d[v][u] = w;
     }
@@ -25,8 +25,8 @@ vector<int> bellman_ford (int src) {
     dist[src] = 0;
     for (int i = 0; i <= k; i++) {
       vector<int> new_dist(dist);
-      for (auto &a : v) {
-        new_dist[a[1]] = min(new_dist[a[1]], dist[a[0]] + a[2]);
+      for (auto &[u, v, w] : edges) {
+        new_dist[v] = min(new_dist[v], dist[u] + w);
       }
       dist = new_dist;
     }
