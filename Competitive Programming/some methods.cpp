@@ -1523,7 +1523,17 @@ auto dfs = [&](auto&& self, int v) -> void {
   // use self inside lambda body instead of dfs:)
 };
 dfs(dfs, 0);
-ery important: For recursive declarations, trailing return type is required when compiler can’t deduce it, which is often the case.
+// Very important: For recursive declarations, trailing return type is required when compiler can’t deduce it, which is often the case.
+// Like above definition is fine.
+// or this, needs to be done:
+auto dfs = [&] (auto &&self, int u, ...) {
+   // ...	
+   if (g[u].empty()) return;
+   for (auto v : g[u]) {
+     self(self, v, ...);
+   }
+};
+
 // M-1
 auto fib = [&] (auto&& self, int n) {  
    if (n < 2) return n; // there must be a return statement before calling self (typically to resolve all cases)
