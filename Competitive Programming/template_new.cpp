@@ -3,7 +3,6 @@ using namespace std;
 using ll = long long;
 #define sz(x) (int)x.size()
 #define all(x) x.begin(), x.end()
-template<typename T> inline T gcd(T a, T b) { while (b) swap(b, a %= b); return a; }
 template<typename A, typename B> ostream& operator<<(ostream &os, const pair<A, B> &p) { return os << '(' << p.first << ", " << p.second << ')'; }
 template<typename T_container, typename T = typename enable_if<!is_same<T_container, string>::value, typename T_container::value_type>::type> ostream& operator<<(ostream &os, const T_container &v) { os << '{'; string sep; for (const T &x : v) os << sep << x, sep = ", "; return os << '}'; }
 void dbg_out() { cerr << endl; }
