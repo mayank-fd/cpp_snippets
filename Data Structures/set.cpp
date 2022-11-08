@@ -75,13 +75,21 @@ bool erase (int x, node* parent = nullptr, node* n1 = root) {
             erase(cur->v, cur, cur->r); // this would just fall into one of the simpler cases.
             return true;
          } else if (cur->l != nullptr) { // one child: replace current node with that child
+            if (!parent) {
+               cur = cur->l;
+               return true;
+            }   
             if (parent->l == cur) {
                parent->l = cur->l;
             } else {
                parent->r = cur->l;
             }
             return true;
-         } else if (cur->r != nullptr) { 
+         } else if (cur->r != nullptr) {
+            if (!parent) {
+               cur = cur->r;
+               return true;
+            }   
             if (parent->l == cur) {
                parent->l = cur->r;
             } else {
@@ -89,6 +97,10 @@ bool erase (int x, node* parent = nullptr, node* n1 = root) {
             }
             return true;
          } else { // no childs: replace with null
+            if (!parent) {
+               cur = nullptr;
+               return true;
+            }   
             if (parent->l == cur) {
                parent->l = nullptr;
             } else {
