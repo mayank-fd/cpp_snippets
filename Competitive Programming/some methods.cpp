@@ -1563,3 +1563,8 @@ std::cout << s.b << ' ' << s.d << ' ' << s.p << ' ' << s.q << '\n'; // [4, 3, 2,
 -Wno-unused-result -Wshadow -Wall -D_GLIBCXX_DEBUG -DLOCAL -fsanitize=address -fsanitize=undefined 
 
  if (cnt[0] == 0) printf("-1\n"), exit(0); // control flow
+ 
+ int dp[71][70 * 70 + 1] = {[0 ... 70][0 ... 70 * 70] = INT_MAX}; // initializing arrays
+
+queue<TreeNode*> bfs;//  is perfectly fine. When it is struct type* {}; you use struct type* s; s->val instead of s.val but code editor will fix that
+
