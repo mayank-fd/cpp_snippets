@@ -29,3 +29,6 @@ void radix_sort (int* a, int n) {
    for (int place = 1; mx / place > 0; place *= 10)
       countingSort(a, n, place);
 }
+
+// There are more sorts, just knowing a little about them would give you the idea.
+// Bucket sort - divides the unsorted array elements into several groups called buckets. Each bucket is then sorted by using any of the suitable sorting algorithms or recursively applying the same bucket algorithm.
