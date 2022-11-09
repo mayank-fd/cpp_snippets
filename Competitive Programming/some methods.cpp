@@ -1561,3 +1561,5 @@ std::cout << s.b << ' ' << s.d << ' ' << s.p << ' ' << s.q << '\n'; // [4, 3, 2,
 
 // Compilation flags
 -Wno-unused-result -Wshadow -Wall -D_GLIBCXX_DEBUG -DLOCAL -fsanitize=address -fsanitize=undefined 
+
+ if (cnt[0] == 0) printf("-1\n"), exit(0); // control flow
