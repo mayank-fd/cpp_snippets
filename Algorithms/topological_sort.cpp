@@ -33,7 +33,7 @@ void solve () {
 } 
 
 
-// Or using bfs - Also known as Kuhn's algorithm
+// Or using bfs - Also known as Kahn's algorithm
 void solve () {
    int n, m;
    cin >> n >> m;
