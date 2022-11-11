@@ -1562,11 +1562,22 @@ std::cout << s.b << ' ' << s.d << ' ' << s.p << ' ' << s.q << '\n'; // [4, 3, 2,
 // Compilation flags
 -Wno-unused-result -Wshadow -Wall -D_GLIBCXX_DEBUG -DLOCAL -fsanitize=address -fsanitize=undefined 
 
- if (cnt[0] == 0) printf("-1\n"), exit(0); // control flow
+if (cnt[0] == 0) printf("-1\n"), exit(0); // control flow
  
- int dp[71][70 * 70 + 1] = {[0 ... 70][0 ... 70 * 70] = INT_MAX}; // initializing arrays
+int dp[71][70 * 70 + 1] = {[0 ... 70][0 ... 70 * 70] = INT_MAX}; // initializing arrays
 
 queue<TreeNode*> bfs;//  is perfectly fine. When it is struct type* {}; you use struct type* s; s->val instead of s.val but code editor will fix that
+
+
+auto reverse_bits = [] (int &n) {
+   int rev = 0;
+   while (n > 0) {
+      rev <<= 1;
+      if (n & 1) rev ^= 1;
+      n >>= 1;
+   }		   
+   n = rev;
+};
 
 
 nth_element (RandomAccessIterator first, RandomAccessIterator nth, RandomAccessIterator last);
@@ -1579,5 +1590,4 @@ int median = nums[n/2];
 
 for (auto i : a) for (int j = 0; j < 32; j++) bits[j] += !!(i & (1 << j));
 // javascript trick xD
-
 
