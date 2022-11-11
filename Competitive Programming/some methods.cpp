@@ -1568,3 +1568,5 @@ std::cout << s.b << ' ' << s.d << ' ' << s.p << ' ' << s.q << '\n'; // [4, 3, 2,
 
 queue<TreeNode*> bfs;//  is perfectly fine. When it is struct type* {}; you use struct type* s; s->val instead of s.val but code editor will fix that
 
+for (auto i : a) for (int j = 0; j < 32; j++) bits[j] += !!(i & (1 << j));
+// javascript trick xD
