@@ -1580,3 +1580,14 @@ auto reverse_bits = [] (int &n) {
 };
 
 
+nth_element (RandomAccessIterator first, RandomAccessIterator nth, RandomAccessIterator last);
+// The function of this is that it rearranges the array in such a way such that the element at the nth position is the one which should be at that position if we sort the list from the first to last iterator. It uses the quick select method for this.
+
+int n = nums.size();
+nth_element(nums.begin(), nums.begin()+(n/2), nums.end()); //Fixing ths median element
+int median = nums[n/2];
+
+
+for (auto i : a) for (int j = 0; j < 32; j++) bits[j] += !!(i & (1 << j));
+// javascript trick xD
+
