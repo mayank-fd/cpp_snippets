@@ -1591,3 +1591,8 @@ int median = nums[n/2];
 for (auto i : a) for (int j = 0; j < 32; j++) bits[j] += !!(i & (1 << j));
 // javascript trick xD
 
+
+// Decorators and more
+// https://github.com/codersanjeev/modern-cpp-tricks#decorators-in-c-and-multiple-parameters
+
+
