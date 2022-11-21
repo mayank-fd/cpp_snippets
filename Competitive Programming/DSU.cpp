@@ -13,7 +13,7 @@ struct DSU {
    }
 }; 
 
-template<class T> T kruskal(int N, vector<pair<T, pair<int, int>> ed) {
+template<class T> T kruskal(int N, vector<pair<T, pair<int, int>>> ed) {
 	sort(ed.begin(), ed.end());
 	T ans = 0; DSU D; D.init(N); // edges that unite are in MST
 	for(auto a : ed) if (D.unite(a.second.first, a.second.second)) ans += a.first;
