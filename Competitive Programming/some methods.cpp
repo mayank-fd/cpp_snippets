@@ -468,6 +468,11 @@ set<Edge, decltype(&cmp)> v(cmp);
 auto cmp = [](const Edge& x, const Edge& y) { return x.w < y.w; };
 set<Edge,bool(*)(const Edge&,const Edge&)> v(cmp);
 
+// M5 - using std::function
+struct Foo {};
+bool Compare(Foo, Foo) { return true; }
+std::priority_queue<Foo, std::vector<Foo>, std::function<bool(Foo, Foo)>> pq(Compare);
+
 
 // If you want to preserve the relative order of equivalent elements, use stable_sort().
 // The final order of equivalent elements will be the same as their initial order before being sorted.
