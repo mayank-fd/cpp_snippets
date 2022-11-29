@@ -468,6 +468,11 @@ set<Edge, decltype(&cmp)> v(cmp);
 auto cmp = [](const Edge& x, const Edge& y) { return x.w < y.w; };
 set<Edge,bool(*)(const Edge&,const Edge&)> v(cmp);
 
+// M5 - using std::function
+struct Foo {};
+bool Compare(Foo, Foo) { return true; }
+std::priority_queue<Foo, std::vector<Foo>, std::function<bool(Foo, Foo)>> pq(Compare);
+
 
 // If you want to preserve the relative order of equivalent elements, use stable_sort().
 // The final order of equivalent elements will be the same as their initial order before being sorted.
@@ -1594,5 +1599,10 @@ for (auto i : a) for (int j = 0; j < 32; j++) bits[j] += !!(i & (1 << j));
 
 // Decorators and more
 // https://github.com/codersanjeev/modern-cpp-tricks#decorators-in-c-and-multiple-parameters
+
+
+cout << accumulate(a, a + 3, sum, myfun); // finds sum
+std::partial_sum(v.begin(), v.end(), v.begin(), std::multiplies<int>()); // writes them down
+https://en.cppreference.com/w/cpp/algorithm/partial_sum
 
 
